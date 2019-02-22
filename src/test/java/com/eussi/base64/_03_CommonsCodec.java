@@ -10,8 +10,8 @@ public class _03_CommonsCodec {
     @Test
     public void test() {
         try {
-            final String text = "密";
-            final byte[] textByte;
+            String text = "密";
+            byte[] textByte;
             textByte = text.getBytes("UTF-8");
             //编码
             byte[] encodeBytes = Base64.encodeBase64(textByte);

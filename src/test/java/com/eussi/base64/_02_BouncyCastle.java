@@ -10,12 +10,12 @@ public class _02_BouncyCastle {
     @Test
     public void test() {
         try {
-            final String text = "密";
-            final byte[] textByte;
+            String text = "密";
+            byte[] textByte;
             textByte = text.getBytes("UTF-8");
             //编码
             byte[] encodeBytes = Base64.encode(textByte);
-            final String encodedText = new String(encodeBytes, "UTF-8");
+            String encodedText = new String(encodeBytes, "UTF-8");
             System.out.println(encodedText);
             //解码
             System.out.println(new String(Base64.decode(encodedText), "UTF-8"));

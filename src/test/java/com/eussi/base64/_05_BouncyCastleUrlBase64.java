@@ -11,12 +11,12 @@ public class _05_BouncyCastleUrlBase64 {
     @Test
     public void test() {
         try {
-            final String text = "密";
-            final byte[] textByte;
+            String text = "密";
+            byte[] textByte;
             textByte = text.getBytes("GBK");
             //编码
             byte[] encodeBytes = UrlBase64.encode(textByte);
-            final String encodedText = new String(encodeBytes, "GBK");
+            String encodedText = new String(encodeBytes, "GBK");
             System.out.println(encodedText);
             //解码
             System.out.println(new String(UrlBase64.decode(encodedText), "GBK"));

@@ -9,17 +9,17 @@ import java.io.UnsupportedEncodingException;
 /**
  * Created by wangxueming on 2019/2/21.
  */
-public class _01_javaapi {
+public class _01_JavaApi {
     @Test
     public void test() {
         try {
-            final BASE64Encoder encoder = new BASE64Encoder();
-            final BASE64Decoder decoder = new BASE64Decoder();
-            final String text = "密";
-            final byte[] textByte;
+            BASE64Encoder encoder = new BASE64Encoder();
+            BASE64Decoder decoder = new BASE64Decoder();
+            String text = "密";
+            byte[] textByte;
             textByte = text.getBytes("UTF-8");
             //编码
-            final String encodedText = encoder.encode(textByte);
+            String encodedText = encoder.encode(textByte);
             System.out.println(encodedText);
             //解码
             System.out.println(new String(decoder.decodeBuffer(encodedText), "UTF-8"));
