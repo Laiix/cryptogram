@@ -47,9 +47,9 @@ public class _01_JavaApiDESede {
             //实例化
             Cipher cipher2 = Cipher.getInstance("DESede/ECB/PKCS5Padding");
             //初始化，设置为加密模式
-            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            cipher2.init(Cipher.DECRYPT_MODE, secretKey);
             //执行操作
-            byte[] origin = cipher.doFinal(output);
+            byte[] origin = cipher2.doFinal(output);
             System.out.println("test解密DESede：" + new String(origin));
 
 
