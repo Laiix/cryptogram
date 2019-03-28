@@ -21,8 +21,8 @@ public class _06_AlgorithmParamters {
         try {
             AlgorithmParameters ap = AlgorithmParameters.getInstance("DES");
             //生成参数字节数组
-            //19050619766489163472469通过AlgorithmParametersGenerator类得到，不能随意写
-            ap.init(new BigInteger("19050619766489163472469").toByteArray());
+            //19046533647688409466013通过AlgorithmParametersGenerator类得到，不能随意写
+            ap.init(new BigInteger("19046533647688409466013").toByteArray());
             //获得参数字节数组
             byte[] b = ap.getEncoded();
             //打印字符串，

@@ -38,7 +38,10 @@ public class _03_MessageDigestTest {
             //初始化摘要对象
             sha = MessageDigest.getInstance("sha");
             //更新摘要信息
-            sha.update(input);
+            sha.update("t".getBytes());
+            sha.update("e".getBytes());
+            sha.update("s".getBytes());
+            sha.update("t".getBytes());
             //获取摘要结果
             output = sha.digest();
             System.out.println("test摘要：" + Arrays.toString(output));
