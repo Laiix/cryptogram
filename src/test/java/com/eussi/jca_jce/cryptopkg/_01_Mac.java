@@ -12,7 +12,7 @@ import java.security.PrivateKey;
 import java.util.Arrays;
 
 /**
- * demo待完善
+ *
  * Created by wangxueming on 2019/4/1.
  */
 public class _01_Mac {//安全消息摘要

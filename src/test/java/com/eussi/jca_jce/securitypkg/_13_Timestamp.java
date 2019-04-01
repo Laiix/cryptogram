@@ -15,7 +15,7 @@ public class _13_Timestamp {//主要用于常见实际运行时对象的类
     public static void main(String[] args) {
         try {
             //构建certificateFactory对象，并指定证书类型为X.509
-            CertificateFactory certificateFactory = CertificateFactory.getInstance("X509");
+            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
             //生成CertPath对象
             //java.security.cert.CertificateException: Could not parse certificate: java.io.IOException: Empty input
             //待解决问题
