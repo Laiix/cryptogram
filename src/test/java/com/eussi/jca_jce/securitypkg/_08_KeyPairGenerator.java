@@ -1,10 +1,7 @@
-package com.eussi.securitypkg;
+package com.eussi.jca_jce.securitypkg;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.math.BigInteger;
 import java.security.*;
 import java.util.Arrays;
 

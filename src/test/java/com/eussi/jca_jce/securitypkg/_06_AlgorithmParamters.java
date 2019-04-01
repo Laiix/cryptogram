@@ -1,4 +1,4 @@
-package com.eussi.securitypkg;
+package com.eussi.jca_jce.securitypkg;
 
 import org.junit.Test;
 
@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.AlgorithmParameters;
 import java.security.NoSuchAlgorithmException;
-import java.security.Provider;
-import java.security.Security;
-import java.util.Map;
 
 /**
  * Created by wangxueming on 2019/2/20.

@@ -1,4 +1,4 @@
-package com.eussi.securitypkg;
+package com.eussi.jca_jce.securitypkg;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.junit.Test;
