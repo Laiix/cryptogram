@@ -5,6 +5,8 @@ package com.eussi._08_certificate;
  */
 public class _01_Keytool {
     /**
+     * passwd:123456
+     *
         1. 构建自签名证书
             #构建证书前，生成密钥对，即基于一种非对称加密的公私钥
              C:\Users\wangxueming>keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36000 -alias www.eussi.top -keystore eussi.keystore -storepass 123456 -dname "CN=www.eussi.top, OU=eussi, O=eussi, L=SH, ST=SH, C=CN"
