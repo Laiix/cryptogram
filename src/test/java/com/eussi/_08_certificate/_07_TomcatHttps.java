@@ -69,17 +69,13 @@ public class _07_TomcatHttps {
             SSL/TLS握手协议确定。不同的客户端同一时间访问同一服务时,将有可能使用不同的协议或
             算法,唯一可以确定的是通过数字证书确定的非对称加密算法
 
-
-
-     双向认证配置：
-
-
-
-
+     程序验证：
+        注意程序访问的URL，需要使用证书中设置的域名（可配置hosts文件进行测试）进行访问，否则会失败
 
      */
 
-    private String httpsURL = "https://localhost:8443/TomcatHttps/";
+    //private String httpsURL = "https://localhost:8443/TomcatHttps/";
+    private String httpsURL = "https://www.eussi.top:8443/TomcatHttps/";
     private String keyStorePath = "src/test/resources/_08_certificate/keytool/eussi.keystore";
     private String keyStorePass = "123456";
     private String trustStorePath = "src/test/resources/_08_certificate/keytool/eussi.keystore";
@@ -113,6 +109,42 @@ public class _07_TomcatHttps {
         httpsURLConnection.disconnect();
         //验证
         Assert.assertNotNull(data);
+
+
+        /**
+         结果展示：
+             <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+             <html>
+             <head>
+             <meta http-equiv=Content-Type" content="text/html; charset=utf-8">
+             <title>eussi.top</title>
+             </head>
+             <body>
+             <p>request属性信息</p>
+             <pre>
+             javax.servlet.request.ssl_session
+             = 5d122a2dc9470fed9b3afb469c4dcacef0068a6d7760237dfbc4c2d5840c88e5
+
+             javax.servlet.request.ssl_session_id
+             = 5d122a2dc9470fed9b3afb469c4dcacef0068a6d7760237dfbc4c2d5840c88e5
+
+             javax.servlet.request.ssl_session_mgr
+             = org.apache.tomcat.util.net.jsse.JSSESupport@a01eb4c
+
+             javax.servlet.request.key_size
+             = 256
+
+             javax.servlet.request.cipher_suite
+             = TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+
+             org.apache.tomcat.util.net.secure_protocol_version
+             = TLSv1
+
+
+             </pre>
+             </body>
+             </html>
+         */
     }
 
 }
