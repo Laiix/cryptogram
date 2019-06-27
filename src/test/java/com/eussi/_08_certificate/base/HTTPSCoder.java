@@ -34,9 +34,10 @@ public class HTTPSCoder {
      * @return
      * @throws Exception
      */
-    private static KeyStore getKeyStore(String keyStorePath, String password) throws Exception{
+    private static KeyStore getKeyStore(String keyStorePath, String password, String keystoreType) throws Exception{
+        keystoreType = keyStorePath==null?KeyStore.getDefaultType():keystoreType;
         //实例化密钥库
-        KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+        KeyStore ks = KeyStore.getInstance(keystoreType);
         //获取密钥文件流
         FileInputStream fis = new FileInputStream(keyStorePath);
         //加载密钥库
@@ -59,12 +60,13 @@ public class HTTPSCoder {
     private static SSLSocketFactory getSSLSocketFactory(String keyStorePath,
                                                         String keyStorePassword,
                                                         String trustStorePath,
-                                                        String trustStorePassword) throws Exception{
+                                                        String trustStorePassword,
+                                                        String keyStoreType) throws Exception{
         //实例化密钥库
         KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(
                 KeyManagerFactory.getDefaultAlgorithm());
         //获得密钥库
-        KeyStore keyStore = getKeyStore(keyStorePath, keyStorePassword);
+        KeyStore keyStore = getKeyStore(keyStorePath, keyStorePassword, keyStoreType);
         //初始化密钥工厂
         keyManagerFactory.init(keyStore, keyStorePassword.toCharArray());
 
@@ -72,7 +74,7 @@ public class HTTPSCoder {
         TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(
                 TrustManagerFactory.getDefaultAlgorithm());
         //获得信任库
-        KeyStore trustStore = getKeyStore(trustStorePath, trustStorePassword);
+        KeyStore trustStore = getKeyStore(trustStorePath, trustStorePassword, keyStoreType);
         //初始化信任库
         trustManagerFactory.init(trustStore);
 
@@ -99,12 +101,14 @@ public class HTTPSCoder {
                                                String keyStorePath,
                                                String keyStorePassword,
                                                String trustStorePath,
-                                               String trustStorePassword) throws Exception {
+                                               String trustStorePassword,
+                                               String keyStoreType) throws Exception {
         //获得SSLSocketFactory
         SSLSocketFactory sslSocketFactory = getSSLSocketFactory(keyStorePath,
                 keyStorePassword,
                 trustStorePath,
-                trustStorePassword);
+                trustStorePassword,
+                keyStoreType);
 
         //设置SSLSocketFactory
         httpsURLConnection.setSSLSocketFactory(sslSocketFactory);
